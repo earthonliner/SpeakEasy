@@ -1,0 +1,26 @@
+# ide
+.vscode/
+.vs/
+
+# macOS
+.DS_Store
+
+# python
+__pycache__/
+*.egg-info/
+dist/
+*.so
+*.whl
+.hypothesis/
+
+# cpp
+build/
+
+# model
+*.bin
+
+# clangd
+.cache/
+
+# data
+/data/

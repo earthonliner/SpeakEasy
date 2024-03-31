@@ -1,0 +1,11 @@
+.git/
+.github/
+.hypothesis/
+.pytest_cache/
+build/
+chatglm_cpp.egg-info/
+dist/
+.dockerignore
+*.bin
+Dockerfile
+**/__pycache__/
