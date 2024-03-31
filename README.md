@@ -19,7 +19,7 @@
 ## 使用方法
 - 根据[Chatglm.cpp](chatglm.cpp.md)安装Chatglm.cpp
 - 下载ChatGLM3 6B-4bit模型 [model](https://huggingface.co/Xorbits/chatglm3-6B-GGML)
-- 安装whisper.cpp(https://github.com/ggerganov/whisper.cpp)，尽量选择BLAS编译，加速推理速度
+- 安装whisper.cpp(https://github.com/ggerganov/whisper.cpp) 尽量选择BLAS编译，加速推理速度
 - 安装相关依赖
 `pip install -r requirements.txt`
 - 修改模型存储路径并运行脚本
