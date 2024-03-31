@@ -24,3 +24,6 @@ build/
 
 # data
 /data/
+
+# realtime data
+examples/runtime/
