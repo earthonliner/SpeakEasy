@@ -20,7 +20,7 @@ Tested on M2 16G MacBook Air / (4070Ti) + 13600KF Ubuntu / (4070Ti) + 13600KF Wi
 ## Usage
 1. Follow the README of [Chatglm.cpp](chatglm.cpp.md) to install chatglm.cpp
 2. Download ChatGLM3 6B-4bit [model](https://huggingface.co/Xorbits/chatglm3-6B-GGML)
-3. Install whisper.cpp(https://github.com/ggerganov/whisper.cpp)，compile with BLAS / CUBLAS can speed up the inference process
+3. Install [whisper.cpp](https://github.com/ggerganov/whisper.cpp) and compile with BLAS / CUBLAS can speed up the inference process
 4. Install requirements
 `pip install -r requirements.txt`
 5. Modify the model path of the script and run it:
