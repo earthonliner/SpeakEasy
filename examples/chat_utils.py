@@ -3,7 +3,7 @@ import subprocess
 
 
 def remove_non_english_chars(text):
-    cleaned_text = re.sub(r'[^a-zA-Z\s.,!?]', '', text)
+    cleaned_text = re.sub(r"[^a-zA-Z\s.,!?]'", '', text)
     return cleaned_text
   
 
