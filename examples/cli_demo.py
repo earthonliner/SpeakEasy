@@ -2,8 +2,7 @@ import os
 import argparse
 from pathlib import Path
 from typing import List
-from TTS.api import TTS
-import playsound
+import requests
 import numpy as np
 from scipy.io import wavfile
 import warnings
@@ -23,9 +22,7 @@ BANNER = """ ==================== Powered by ChatGLM.cpp ====================
                                               /_/   /_/       
 """.strip("\n")
 WELCOME_MESSAGE = "Welcome to ChatGLM.CPP-based oral English bot! Ask whatever you want. Say 'clear' to clear context. Say 'stop' to exit."
-
-import requests
-url = 'http://localhost:5000/convert_text_to_speech'
+tts_url = 'http://localhost:5000/convert_text_to_speech'
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -47,7 +44,6 @@ def main() -> None:
     parser.add_argument("--runtime_dir", default=None, type=str, help="path to save chat audio and text file")
     parser.add_argument("--asr_main", default=None, type=str, help="path to run asr main program")
     parser.add_argument("--asr_model", default=None, type=str, help="path to load asr model")
-    parser.add_argument("--tts_model", default=None, type=str, help="path to load tts model")
     parser.add_argument("--input_device", default=0, type=int, help="the index of the input device")
     args = parser.parse_args()
 
@@ -58,7 +54,6 @@ def main() -> None:
     if args.sp:
         system = args.sp.read_text()
     os.makedirs(args.runtime_dir, exist_ok=True)
-    # tts = TTS(model_name=args.tts_model, progress_bar=False)
     sampling_rate = 22050            
     sd.default.samplerate = sampling_rate
     sd.default.latency = 'low'
@@ -149,7 +144,7 @@ def main() -> None:
         ai_audio_path = f'{args.runtime_dir}/chat_{talk_round}_ai.wav'  
         response_txt = remove_non_english_chars(msg_out.content.replace('\n', ' ').strip())
         if response_txt:
-            response = requests.post(url, json={'text': response_txt})
+            response = requests.post(tts_url, json={'text': response_txt})
             if response.status_code == 200:
                 wav = response.json()['audio']
                 wav = np.array([x[0] for x in wav], dtype=np.float32).reshape((-1, 1))
@@ -158,8 +153,6 @@ def main() -> None:
                 sd.wait()
             else:
                 print('Error:', response.json())
-            # tts.tts_to_file(response_txt, file_path=ai_audio_path)
-            # playsound.playsound(ai_audio_path)
 
     print("Bye")
 

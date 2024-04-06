@@ -15,15 +15,18 @@ Tested on M2 16G MacBook Air / (4070Ti) + 13600KF Ubuntu / (4070Ti) + 13600KF Wi
 - Real-time and offline functionality
 - Utilizes [ChatGLM3](https://github.com/THUDM/ChatGLM3) 6B 4-bit quantized model for chat interactions
 - Accelerated automatic speech recognition (ASR) with [whisper.cpp](https://github.com/ggerganov/whisper.cpp)
-- Text-to-speech (TTS) conversion using [TTS](https://github.com/coqui-ai/TTS)
+- Text-to-speech (TTS) conversion using [EfficientSpeech](https://github.com/roatienza/efficientspeech)
 
 ## Usage
 1. Follow the README of [Chatglm.cpp](chatglm.cpp.md) to install chatglm.cpp
 2. Download ChatGLM3 6B-4bit [model](https://huggingface.co/Xorbits/chatglm3-6B-GGML)
 3. Install [whisper.cpp](https://github.com/ggerganov/whisper.cpp) and compile with BLAS / CUBLAS can speed up the inference process
-4. Install requirements
+4. Install [EfficientSpeech](./examples/efficientspeech/README.md) for real-time TTS
+5. Install requirements
 `pip install -r requirements.txt`
-5. Modify the model path of the script and run it:
+6. Create local TTS service
+`cd examples/efficientspeech/ && sh es_tts_service.sh`
+7. Modify the model path of the script and run it:
     ```
     vim examples/demo.sh 
     cd examples && sh demo.sh

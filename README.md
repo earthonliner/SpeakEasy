@@ -14,14 +14,17 @@
 - 实时和离线功能
 - 使用[ChatGLM3](https://github.com/THUDM/ChatGLM3) 6B 4比特量化模型进行聊天交互
 - 使用[whisper.cpp](https://github.com/ggerganov/whisper.cpp)加速自动语音识别（ASR）
-- 使用[TTS](https://github.com/coqui-ai/TTS)进行文本转语音转换
+- 使用[EfficientSpeech](https://github.com/roatienza/efficientspeech)进行文本转语音转换
 
 ## 使用方法
 - 根据[Chatglm.cpp](chatglm.cpp.md)安装Chatglm.cpp
 - 下载ChatGLM3 6B-4bit模型 [model](https://huggingface.co/Xorbits/chatglm3-6B-GGML)
 - 安装 [whisper.cpp](https://github.com/ggerganov/whisper.cpp) 尽量选择BLAS编译，加速推理速度
+- 安装 [EfficientSpeech](./examples/efficientspeech/README.md)
 - 安装相关依赖
 `pip install -r requirements.txt`
+- 创建本地文字转语音服务（TTS）
+`cd examples/efficientspeech/ && sh es_tts_service.sh`
 - 修改模型存储路径并运行脚本
     ```
     vim examples/demo.sh 

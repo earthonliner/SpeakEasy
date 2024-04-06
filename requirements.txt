@@ -2,4 +2,3 @@ pynput
 scipy
 sounddevice
 subprocess
-TTS
